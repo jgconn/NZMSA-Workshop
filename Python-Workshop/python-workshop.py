@@ -20,15 +20,9 @@ for lst in transmisionsLst:
 # print(sumsLst)
 
 # exercise 3
-count = 0
+myDict = {}
 for lst in transmisionsLst:
-    sumsLst[count] = [int(lst[0]), sumsLst[count]]
-    count += 1
+    myDict[int(lst[0])] = sumsLst.pop(0)
 
-sortLst = sorted(sumsLst, key=lambda x:x[0])
-
-sentence = ""
-for i in sortLst:
-    sentence += (chr(i[1]))
-
-print(sentence)
+sentence = [chr(myDict[key]) for key in sorted(myDict)]
+print("".join(sentence))
